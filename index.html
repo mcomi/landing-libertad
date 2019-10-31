@@ -170,6 +170,18 @@
                     para obtenerlo sólo debes completar <br />
                     esta solicitud
                   </p>
+                  <div class="form-group">
+                    <div class="selectdiv">
+
+                      <select class="form-control" id="exampleFormControlSelect1">
+                        <option>Elige tu sucursal más cercana</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </div>
+                  </div>
                   <p class="lead pt-1">¡Sólo te tomará 5 minutos!</p>
                   <div class="row">
                     <div class="col-12 text-center z-index2">
@@ -198,12 +210,9 @@
         </div>
       </section>
 
-      <section class="docs" id="form-upload">
+      <section class="docs mb-5" id="form-upload">
         <div class="row h-100">
-          <div class="col-md-5">
-            <div class="bg-panadero"></div>
-          </div>
-          <div class="col-md-6 my-auto text-center">
+          <div class="col-md-6 col-12 offset-md-3 my-auto text-center">
             <h2 class="process pb-5">
               Para continuar con el <br />proceso carga <br />los siguientes
               documentos
@@ -213,9 +222,10 @@
                 >IFE/INE - Foto de tu imagen mostrando tu identificación</small
               >
             </p>
-            <div class="row">
+            <div class="row mb-3">
               <div class="col-md-5 offset-md-1">
                 <div
+                  id="card-ine"
                   class="card card-id-upload mb-3"
                   data-toggle="modal"
                   data-target="#modalINE"
@@ -227,15 +237,112 @@
                 </div>
               </div>
               <div class="col-md-5">
-                <div class="card card-id-upload mb-3">
-                  <div class="card-body">
-                    <img src="assets/images/logo ife.png" alt="" />
-                    <h6 class="text-white mt-2 text-uppercase">Fotografía</h6>
+                <div id="drag-and-drop-foto" class="dm-uploader">
+                  <div class="card card-id-upload mb-3">
+                    <div class="card-body">
+                      <img src="assets/images/logo ife.png" alt="" />
+                      <h6 class="text-white mt-2 text-uppercase">Fotografía</h6>
+                      <input
+                        name="foto"
+                        type="file"
+                        title="Click para añadir archivo"
+                      />
+
+                      <div class="progress-container">
+                        <div class="progress mb-2 d-none">
+                          <div
+                            class="progress-bar progress-bar-animated bg-orange"
+                            role="progressbar"
+                            style="width: 0%;"
+                            aria-valuenow="0"
+                            aria-valuemin="0"
+                            aria-valuemax="0"
+                          >
+                            <span>0%</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="col-12 text-center mb-4">
-                <button id="btn-enviar" class="btn btn-enviar">Enviar</button>
+              <div class="col-md-5 mx-auto">
+                  <div id="drag-and-drop-comprobante" class="dm-uploader">
+                      <div class="card card-id-upload">
+                        <div class="card-body">
+                          <img src="assets/images/logo ife.png" alt="" />
+                          <h6 class="text-white mt-2 text-uppercase">Comprobante de Domicilio</h6>
+                          <input
+                            name="comprobante"
+                            type="file"
+                            title="Click para añadir archivo"
+                          />
+    
+                          <div class="progress-container">
+                            <div class="progress mb-2 d-none">
+                              <div
+                                class="progress-bar progress-bar-animated bg-orange"
+                                role="progressbar"
+                                style="width: 0%;"
+                                aria-valuenow="0"
+                                aria-valuemin="0"
+                                aria-valuemax="0"
+                              >
+                                <span>0%</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="nss">
+        <div class="h-100 bg-nss">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-10 col-12 mx-auto">
+                <h3 class="text-white text-center pt-5 pb-1">
+                  SI NO TIENES UN COMPROBANTE DE INGRESOS A LA MANO CAPTURA AQUI
+                  TU NUMERO DE SEGURIDAD SOCIAL (NSS)
+                </h3>
+                <div class="col-lg-4 col-12 mx-auto pb-5">
+                  <input
+                    id="input-nss"
+                    type="text"
+                    class="form-control nss-input"
+                    placeholder="034-546-7890"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row h-100 py-5">
+            <div class="col-md-6 col-12 offset-md-3 my-auto text-center">
+              <h2 class="process pb-5">
+                SI NO SABES CUAL ES TU NSS <br />DA CLICK AQUI
+              </h2>
+              <div class="col-md-12 mx-auto">
+                <a href="" class="btn btn-nss">NSS</a>
+              </div>
+              <div class="bullets justify-content-center py-4">
+                <div class="bullet blue"></div>
+                <div class="bullet blue"></div>
+                <div class="bullet blue"></div>
+              </div>
+              <div id="confirmacion">
+                <h3 class="title-green">¡Listo!</h3>
+                <div class="col-12 text-center mb-4">
+                  <button id="btn-enviar" class="btn btn-enviar">
+                    Enviar documentos
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -321,9 +428,9 @@
                 <div class="col-md-5 offset-md-1">
                   <div class="card card-upload mb-3">
                     <div class="card-body text-center">
-                      <div id="drag-and-drop-cv" class="dm-uploader">
+                      <div id="drag-and-drop-ine-frente" class="dm-uploader">
                         <input
-                          name="cv"
+                          name="ine-frente"
                           type="file"
                           title="Click para añadir archivo"
                         />
@@ -351,9 +458,9 @@
                 <div class="col-md-5">
                   <div class="card card-upload mb-3">
                     <div class="card-body text-center">
-                      <div id="drag-and-drop-cv" class="dm-uploader">
+                      <div id="drag-and-drop-ine-reverso" class="dm-uploader">
                         <input
-                          name="cv"
+                          name="ine-reverso"
                           type="file"
                           title="Click para añadir archivo"
                         />
@@ -378,6 +485,15 @@
                     </div>
                   </div>
                 </div>
+              </div>
+              <div class="col-12 text-center text-white">
+                <label
+                  ><input class="cb pristine" type="checkbox" />
+                  <span
+                    >VIVO EN EL MISMO DOMICILIO QUE EL QUE ESTA REGISTRADO EN MI
+                    IFE</span
+                  ></label
+                >
               </div>
               <div class="col-12 text-center">
                 <button
@@ -416,6 +532,7 @@
     ></script>
     <script src="vendor/rangeslider.min.js" type="text/javascript"></script>
     <script src="vendor/wow.min.js"></script>
+    <script src="vendor/jquery.dm-uploader.min.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
